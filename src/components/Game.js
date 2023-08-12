@@ -78,8 +78,10 @@ export default function Game() {
         }
     }
 
+    // eslint-disable-next-line
     useEffect(() => {
-        // console.log(selectedNo, random);
+
+        // eslint-disable-next-line
         if (!selectedNo) return;
         if (selectedNo === random) {
             setScores(s => s + 10)
@@ -105,6 +107,7 @@ export default function Game() {
             }, 800);
         }
 
+        // eslint-disable-next-line
     }, [random, counter])
 
     useEffect(() => {

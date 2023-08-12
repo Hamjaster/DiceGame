@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom"
 import dices from '../dices.png'
 
@@ -11,7 +11,7 @@ export default function Home() {
 
                 <div className="first space-y-20">
                     <div className="text-5xl uppercase text-center md:text-left font-bold font-sans">Dice Game</div>
-                    <div className="dices"><img width={500} src={dices} /></div>
+                    <div className="dices"><img width={500} src={dices} alt='Blackdice' /></div>
                 </div>
 
                 <div className="play text-2xl flex flex-col space-y-1">

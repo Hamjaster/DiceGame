@@ -4,12 +4,12 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
     useDisclosure,
     Button,
 } from '@chakra-ui/react'
+
 export default function Rules() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
