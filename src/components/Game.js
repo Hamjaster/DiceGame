@@ -6,14 +6,13 @@ import four from '../dice_4.png'
 import five from '../dice_5.png'
 import six from '../dice_6.png'
 import sound from '../sound.mp3'
-import { Button, useEventListenerMap, useMenuState } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { useState } from 'react'
 import Rules from './Rules'
 import {
     Alert,
     AlertIcon,
     AlertTitle,
-    AlertDescription,
 } from '@chakra-ui/react'
 const array = [1, 2, 3, 4, 5, 6]
 
@@ -34,26 +33,27 @@ export default function Game() {
     const [scoresArray, setSetscoresArray] = useState([])
     const [highest, setHighest] = useState(JSON.parse(localStorage.getItem('high')))
     const [counter, setCounter] = useState(0)
+
     const getSrc = (no) => {
         switch (no) {
             case 1:
                 return one;
-                break;
+
             case 2:
                 return two;
-                break;
+
             case 3:
                 return three;
-                break;
+
             case 4:
                 return four;
-                break;
+
             case 5:
                 return five;
-                break;
+
             case 6:
                 return six;
-                break;
+
             default:
                 return one;
 
@@ -79,12 +79,10 @@ export default function Game() {
     }
 
     useEffect(() => {
-
-        console.log(selectedNo, random);
+        // console.log(selectedNo, random);
         if (!selectedNo) return;
         if (selectedNo === random) {
-            setScores(scores + 10)
-
+            setScores(s => s + 10)
             setSetscoresArray(
                 Array.from(new Set([highest, ...scoresArray, scores + 10]))
             )
@@ -98,7 +96,7 @@ export default function Game() {
                 setScores(0)
                 setSetscoresArray(Array.from(new Set([highest, ...scoresArray, 0])))
             } else {
-                setScores(scores - random)
+                setScores(s => s - random)
             }
             setFloatingNo(`-${random}`)
             setShowDiv(true);
@@ -110,7 +108,7 @@ export default function Game() {
     }, [random, counter])
 
     useEffect(() => {
-        console.log(scoresArray, 'SCORES');
+        // console.log(scoresArray, 'SCORES');
         if (scoresArray && scoresArray.length > 0) {
             setHighest(Math.max(...scoresArray))
         }
@@ -150,7 +148,7 @@ export default function Game() {
                 </div>
 
 
-                <div className="numbers justify-center self-center flex-wrap flex flex-row items-center sm:space-x-1 md:space-x-5 mx-4 my-4">
+                <div className="numbers justify-center self-center flex-wrap flex flex-row items-center sm:space-x-1  md:space-x-5 mx-4 my-4">
                     {array.map((no) => {
                         return <div onClick={() => setselectedNo(no)} className={`no p-5 px-8 cursor-pointer ${no === selectedNo ? "bg-black border border-black text-white" : "text-black border border-black hover:bg-black hover:text-white bg-white"}  text-4xl`}>
                             {no}
